@@ -1,0 +1,1209 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #e31e24;
+    --dark-bg: #0a0a0a;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2a2a2a;
+    --light-gray: #3a3a3a;
+    --white: #ffffff;
+    --text-gray: #b0b0b0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-red);
+    margin: 1rem auto 0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #c41a1f;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(227, 30, 36, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--dark-bg);
+    transform: translateY(-2px);
+}
+
+.btn-large {
+    padding: 18px 40px;
+    font-size: 1.1rem;
+}
+
+/* Sticky Buttons */
+.whatsapp-sticky,
+.call-sticky {
+    position: fixed;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-sticky {
+    right: 20px;
+    background: #25d366;
+}
+
+.whatsapp-sticky:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.call-sticky {
+    right: 90px;
+    background: var(--primary-red);
+    display: none;
+}
+
+.call-sticky:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(227, 30, 36, 0.4);
+}
+
+.whatsapp-sticky svg,
+.call-sticky svg {
+    width: 30px;
+    height: 30px;
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-gray) 50%, var(--medium-gray) 100%);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 50px,
+            rgba(227, 30, 36, 0.03) 50px,
+            rgba(227, 30, 36, 0.03) 51px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 50px,
+            rgba(227, 30, 36, 0.03) 50px,
+            rgba(227, 30, 36, 0.03) 51px
+        );
+    opacity: 0.5;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, var(--dark-bg) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    max-width: 900px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--text-gray);
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Why Choose Section */
+.why-choose {
+    padding: 100px 0;
+    background: var(--dark-gray);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--medium-gray);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-red);
+    box-shadow: 0 10px 30px rgba(227, 30, 36, 0.2);
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.feature-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* Services Section */
+.services {
+    padding: 100px 0;
+    background: var(--dark-bg);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--dark-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.service-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.service-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, var(--dark-gray) 100%);
+}
+
+.service-image.strength {
+    background: linear-gradient(135deg, var(--primary-red) 0%, #8b0000 100%);
+}
+
+.service-image.cardio {
+    background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
+}
+
+.service-image.crossfit {
+    background: linear-gradient(135deg, #ff8787 0%, #e03131 100%);
+}
+
+.service-image.zumba {
+    background: linear-gradient(135deg, #ffa8a8 0%, #f03e3e 100%);
+}
+
+.service-image.yoga {
+    background: linear-gradient(135deg, #ffc9c9 0%, #fa5252 100%);
+}
+
+.service-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.service-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.service-content p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* Membership Section */
+.membership {
+    padding: 100px 0;
+    background: var(--dark-gray);
+}
+
+.membership-subtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--text-gray);
+    margin-bottom: 3rem;
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 3rem;
+}
+
+.membership-card {
+    background: var(--medium-gray);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.membership-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-red);
+}
+
+.membership-card.featured {
+    border-color: var(--primary-red);
+    background: var(--light-gray);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-red);
+    color: var(--white);
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.membership-card h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.membership-card p {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+}
+
+.membership-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.membership-card ul li {
+    padding: 10px 0;
+    color: var(--text-gray);
+    position: relative;
+    padding-left: 25px;
+}
+
+.membership-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-red);
+    font-weight: bold;
+}
+
+.membership-cta {
+    text-align: center;
+}
+
+/* Location Section */
+.location {
+    padding: 100px 0;
+    background: var(--dark-bg);
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 3rem;
+}
+
+.timings-card,
+.address-card {
+    background: var(--dark-gray);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid var(--medium-gray);
+}
+
+.timings-card h3,
+.address-card h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+}
+
+.timing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.timing-label {
+    font-weight: 600;
+    color: var(--text-gray);
+}
+
+.timing-value {
+    font-weight: 700;
+    color: var(--primary-red);
+    font-size: 1.1rem;
+}
+
+.timing-note {
+    margin-top: 1rem;
+    color: var(--text-gray);
+    font-style: italic;
+}
+
+.address {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.address svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-red);
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.map-container iframe {
+    filter: grayscale(100%) invert(92%) contrast(83%);
+}
+
+/* Trust Section */
+.trust {
+    padding: 100px 0;
+    background: var(--dark-gray);
+}
+
+.trust-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-bottom: 3rem;
+}
+
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.trainer-card {
+    background: var(--medium-gray);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.trainer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(227, 30, 36, 0.2);
+}
+
+.trainer-avatar {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.trainer-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.trainer-card p {
+    color: var(--text-gray);
+}
+
+/* Final CTA Section */
+.final-cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-red) 100%);
+    text-align: center;
+}
+
+.cta-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.cta-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-gray);
+    margin-bottom: 2.5rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-bg);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--medium-gray);
+}
+
+.footer p {
+    color: var(--text-gray);
+    margin: 5px 0;
+}
+
+.demo-notice {
+    color: var(--primary-red);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .call-sticky {
+        display: flex;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 60px 0 40px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 18px 25px;
+        font-size: 0.95rem;
+        min-height: 56px;
+    }
+
+    .btn svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-title::after {
+        width: 60px;
+        height: 3px;
+    }
+
+    /* Why Choose Section - Mobile */
+    .why-choose {
+        padding: 60px 0;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-card {
+        padding: 30px 20px;
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Services Section - Mobile */
+    .services {
+        padding: 60px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card {
+        margin-bottom: 10px;
+    }
+
+    .service-image {
+        height: 180px;
+    }
+
+    .service-content {
+        padding: 20px;
+    }
+
+    .service-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .service-content p {
+        font-size: 0.9rem;
+    }
+
+    /* Membership Section - Mobile */
+    .membership {
+        padding: 60px 0;
+    }
+
+    .membership-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .membership-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .membership-card {
+        padding: 35px 25px;
+    }
+
+    .membership-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .membership-card p {
+        font-size: 0.9rem;
+    }
+
+    .membership-card ul li {
+        font-size: 0.9rem;
+        padding: 8px 0;
+    }
+
+    .popular-badge {
+        font-size: 0.75rem;
+        padding: 4px 15px;
+    }
+
+    /* Location Section - Mobile */
+    .location {
+        padding: 60px 0;
+    }
+
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .timings-card,
+    .address-card {
+        padding: 30px 20px;
+    }
+
+    .timings-card h3,
+    .address-card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .timing-item {
+        padding: 12px 0;
+    }
+
+    .timing-label,
+    .timing-value {
+        font-size: 0.95rem;
+    }
+
+    .address {
+        font-size: 1rem;
+    }
+
+    .map-container {
+        margin-top: 20px;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    /* Trust Section - Mobile */
+    .trust {
+        padding: 60px 0;
+    }
+
+    .trust-text {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .trainer-card {
+        padding: 30px 20px;
+    }
+
+    .trainer-avatar {
+        font-size: 4rem;
+    }
+
+    .trainer-card h4 {
+        font-size: 1.3rem;
+    }
+
+    .trainer-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Final CTA - Mobile */
+    .final-cta {
+        padding: 60px 0;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .cta-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .btn-large {
+        padding: 18px 25px;
+        font-size: 1rem;
+        min-height: 56px;
+    }
+
+    /* Sticky Buttons - Mobile */
+    .whatsapp-sticky,
+    .call-sticky {
+        width: 56px;
+        height: 56px;
+        bottom: 15px;
+    }
+
+    .whatsapp-sticky {
+        bottom: 80px;
+        right: 15px;
+    }
+
+    .call-sticky {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .whatsapp-sticky svg,
+    .call-sticky svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Footer - Mobile */
+    .footer {
+        padding: 30px 0;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+    }
+
+    .demo-notice {
+        font-size: 0.8rem;
+    }
+}
+
+/* Small phones (320px - 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        padding: 16px 20px;
+        font-size: 0.9rem;
+        min-height: 52px;
+    }
+
+    .feature-card,
+    .service-card,
+    .membership-card,
+    .trainer-card {
+        padding: 25px 15px;
+    }
+
+    .service-image {
+        height: 160px;
+    }
+
+    .whatsapp-sticky,
+    .call-sticky {
+        width: 52px;
+        height: 52px;
+    }
+
+    .whatsapp-sticky svg,
+    .call-sticky svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .membership-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trainers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large tablets and small laptops (1025px - 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .container {
+        max-width: 1100px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tap Feedback for Mobile */
+@media (hover: none) {
+    .btn:active {
+        transform: scale(0.97);
+        opacity: 0.9;
+    }
+
+    .feature-card:active,
+    .service-card:active,
+    .membership-card:active,
+    .trainer-card:active {
+        transform: scale(0.98);
+        opacity: 0.95;
+    }
+
+    .whatsapp-sticky:active,
+    .call-sticky:active {
+        transform: scale(0.88);
+    }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+    /* Larger touch targets */
+    .btn {
+        min-height: 48px;
+        padding: 15px 30px;
+    }
+
+    /* Better spacing for touch */
+    .hero-buttons {
+        gap: 20px;
+    }
+
+    .features-grid,
+    .services-grid,
+    .membership-grid,
+    .trainers-grid {
+        gap: 25px;
+    }
+
+    /* Prevent text selection on buttons */
+    .btn,
+    .whatsapp-sticky,
+    .call-sticky {
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.service-image {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.service-card:hover .service-image {
+    animation: none;
+}
+
+
+/* Mobile-specific optimizations */
+.mobile-device * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mobile-device.scrolling * {
+    pointer-events: none;
+}
+
+.mobile-device.scrolling .whatsapp-sticky,
+.mobile-device.scrolling .call-sticky {
+    pointer-events: all;
+}
+
+/* Prevent overscroll bounce on iOS */
+body {
+    overscroll-behavior-y: none;
+}
+
+/* Optimize for notched phones (iPhone X and newer) */
+@supports (padding: max(0px)) {
+    .hero-content,
+    .container {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
+
+    .whatsapp-sticky,
+    .call-sticky {
+        right: max(15px, env(safe-area-inset-right));
+    }
+
+    .footer {
+        padding-bottom: max(40px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Landscape mode on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .btn {
+        width: auto;
+        padding: 12px 25px;
+        min-height: 44px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .whatsapp-sticky,
+    .call-sticky {
+        width: 48px;
+        height: 48px;
+    }
+
+    .whatsapp-sticky svg,
+    .call-sticky svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* High DPI screens (Retina displays) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark mode support (if user prefers) */
+@media (prefers-color-scheme: dark) {
+    /* Already dark by default, but ensure consistency */
+    body {
+        background-color: var(--dark-bg);
+        color: var(--white);
+    }
+}
+
+/* Focus styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid var(--primary-red);
+    outline-offset: 2px;
+}
+
+/* Improve readability on small screens */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 14px 18px;
+    }
+
+    .feature-card h3,
+    .service-content h3,
+    .membership-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .whatsapp-sticky,
+    .call-sticky {
+        width: 50px;
+        height: 50px;
+    }
+}

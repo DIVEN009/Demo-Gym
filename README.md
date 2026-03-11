@@ -1,6 +1,6 @@
-# Titan Fitness Gym - Demo Website
+# Fitness Studio - Demo Website
 
-A modern, responsive single-page website for a gym business demo.
+A modern, responsive single-page website for a fitness business demo.
 
 ## Features
 
@@ -15,8 +15,8 @@ A modern, responsive single-page website for a gym business demo.
 ## Sections
 
 1. **Hero Section** - Eye-catching headline with CTA buttons
-2. **Why Choose Us** - Feature cards highlighting gym benefits
-3. **Services** - Grid layout showcasing all gym services
+2. **Why Choose Us** - Feature cards highlighting key benefits
+3. **Services** - Grid layout showcasing all available services
 4. **Membership Plans** - Monthly, Quarterly, and Yearly options
 5. **Timings & Location** - Operating hours and Google Maps
 6. **Trust Section** - Trainer profiles and testimonials
